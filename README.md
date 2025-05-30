@@ -13,6 +13,7 @@ Our approach, **TriFusion**, leverages a Variational Autoencoder (VAE)-based con
 ## 📂 Repository Structure
 
 Here's a guide to the contents of this repository:
+```bash
 
 TriFusionBD/
 │
@@ -38,6 +39,7 @@ TriFusionBD/
 │
 └── README.md
 📄 This file, describing the repository structure and how to use it.
+```
 
 
 
