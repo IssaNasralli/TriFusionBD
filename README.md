@@ -94,7 +94,7 @@ year={2025}
 
 ## 📬 Contact
 
-For questions or collaborations, feel free to reach out at [your-email@example.com].
+For questions or collaborations, feel free to reach out at [aissanasralli@gmail.com].
 
 ---
 
