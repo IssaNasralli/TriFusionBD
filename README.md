@@ -58,7 +58,7 @@ TriFusionBD/
 ### Prerequisites
 
 - Python 3.x
-- PyTorch (for model training and testing)
+- TensorFlow 2.15 (for model training and testing)
 - ArcGIS Python API (for spatial data processing)
 - Google Earth Engine (for DEM and slope extraction)
 
