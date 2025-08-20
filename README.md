@@ -88,12 +88,15 @@ Download QGIS (Windows):
 
 
 Right-click the raster layer and open Properties → Information (Figure 1).
+
 **Figure 1.** Raster properties window  
 ![Raster Properties Window](p1.png)
 The original Massachusetts test image contains only 3 bands (RGB) (Figure 2).
+
 **Figure 2.** Original Massachusetts test image (3 bands: RGB)  
 ![Original 3-band raster](p3.png)
 The updated test image contains 5 bands (RGB + DEM + Slope) (Figure 3).
+
 **Figure 3.** Updated test image (5 bands: RGB + DEM + Slope)  
 ![Updated 5-band raster](p4.png)
 
