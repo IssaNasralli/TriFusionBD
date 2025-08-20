@@ -7,7 +7,7 @@ This repository provides a **lightweight test harness** for the pretrained **Tri
 ## 📦 Requirements
 
 - Python 3.8+
-- TensorFlow (2.12–2.15 recommended)
+- TensorFlow
 - numpy
 - rasterio
 Install dependencies:
