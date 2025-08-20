@@ -1,103 +1,111 @@
-# TriFusionBD
+# TriFusionBD – Building Segmentation from GeoTIFF (Test Repository)
 
-# TriFusionBD: VAE-Driven Context Fusion with Atrous Convolutions for Satellite-Based Building Segmentation
+This repository provides a **lightweight test harness** for the pretrained **TriFusionBD** model to segment **buildings** on updated test images that combine **RGB + DEM + Slope** layers (5 bands). You will (1) run inference to obtain per-pixel **probabilities (0–1)** and (2) apply a threshold to get **binary masks** suitable for GIS visualization.
 
-This repository provides the implementation and supporting resources for the research paper:
+---
 
-**"TriFusionBD: VAE-Driven Context Fusion with Atrous Convolutions for Satellite-Based Building Segmentation"**
+## 📦 Requirements
 
-Our approach, **TriFusion**, leverages a Variational Autoencoder (VAE)-based context fusion mechanism with multi-scale atrous convolutions to enhance building segmentation accuracy from satellite imagery. We also integrate auxiliary features such as Digital Elevation Model (DEM) and slope data to improve segmentation performance in challenging environments.
+- Python 3.8+
+- TensorFlow (2.12–2.15 recommended)
+- numpy
+- rasterio
+Install dependencies:
+
+    pip install -r requirements.txt
+
+Create `requirements.txt`:
+
+    tensorflow==2.15.0
+    numpy
+    rasterio
 
 ---
 
 ## 📂 Repository Structure
 
-Here's a guide to the contents of this repository:
-```bash
+    TriFusionBD-Test/
+    │── README.md
+    │── TriFusion_Gate_Atrous_Gate.py   # Model definition
+    │── predict.py                       # Run inference on all GeoTIFFs in test_dem/
+    │── threshold.py                     # Apply threshold to probability maps
+    │
+    ├── test_updated/                        # UPDATED test GeoTIFFs (5 bands: R,G,B,DEM,Slope)
+    │   ├── 1_updated.tif
+    │   └── 2_updated.tif
+    │
+    └── test/                            # ORIGINAL test GeoTIFFs (reference RGB)
+        ├── 1.tif
+        └── 2.tif
 
-TriFusionBD/
-│
-├── paper/
-│ └── TriFusionBD.pdf
-│ 📄 The PDF of our published paper, providing detailed methodology, results, and discussions.
-│
-├── dem_slope_extraction/
-│ └── [JavaScript code for GEE]
-│ 📁 JavaScript code designed for the Google Earth Engine (GEE) platform to extract DEM and slope data.
-│
-├── arcgis_processing/
-│ └── [Python scripts for ArcGIS]
-│ 📁 Python scripts to preprocess spatial data, such as generating terrain features and preparing datasets.
-│
-├── model_training/
-│ └── [Python code for model]
-│ 📁 Code to define and train the TriFusionBD deep learning model, including VAE context fusion and atrous convolution layers.
-│
-├── model_testing/
-│ └── [Python code for evaluation]
-│ 📁 Code to test the trained model and perform post-processing on the output (e.g., thresholding, morphological operations).
-│
-└── README.md
-📄 This file, describing the repository structure and how to use it.
-```
-
-
+**Input format**: GeoTIFFs with **5 bands** ordered as **[R, G, B, DEM, Slope]**.
 
 ---
 
-## 🚀 TriFusionBD Highlights
+## 🚀 Quick Start
 
-- **VAE-Driven Context Fusion**: Our architecture introduces a variational autoencoder to capture and merge multi-modal contextual information, including spatial features from satellite imagery and terrain data.
-- **Atrous Convolutions**: Multi-scale atrous convolutions expand the receptive field, allowing the model to capture fine-grained details without increasing computational burden.
-- **Auxiliary Data**: We incorporate DEM and slope data to enhance the model's understanding of the physical landscape, crucial for accurate building segmentation.
+### 1) Run Prediction (probability maps)
+Runs on **all `.tif` files inside `test_dem/`** and writes per-pixel building probabilities (0–1) to `output/`.
 
----
+    python predict.py
 
-## 🛠️ Getting Started
+This creates:
 
-### Prerequisites
+    output/
+      ├── 1_updated.tif    # float32, values in [0,1]
+      └── 2_updated.tif
 
-- Python 3.x
-- TensorFlow 2.15 (for model training and testing)
-- ArcGIS Python API (for spatial data processing)
-- Google Earth Engine (for DEM and slope extraction)
-
-### Suggested Workflow
-
-1. **Extract DEM and Slope Data**:  
-   Use the JavaScript code in `dem_slope_extraction/` via Google Earth Engine to obtain DEM and slope data for your region of interest.
-   
-2. **Preprocess Spatial Data**:  
-   Run the Python scripts in `arcgis_processing/` to generate the necessary terrain features and prepare datasets.
-
-3. **Train the Model**:  
-   Use the code in `model_training/` to define and train the TriFusionBD model.
-
-4. **Test and Post-process**:  
-   Apply the trained model to new data using `model_testing/`, and refine the outputs with post-processing techniques.
+**Color meaning (for visualization):**
+- 0.0 → **black** (non-building)
+- 1.0 → **white** (building)
+- (0.0–1.0) → **grayscale** probability
 
 ---
 
-## 📄 Citation
+### 2) Apply Threshold (binary masks)
+Converts probability maps to **binary** masks using a user-defined threshold (e.g., 0.50). The result contains **white (1)** for building and **black (0)** for background.
 
-If you use this repository in your work, please cite:
+    python threshold.py --threshold 0.9
 
-@inproceedings{TriFusionBD2024,
-title={TriFusionBD: VAE-Driven Context Fusion with Atrous Convolutions for Satellite-Based Building Segmentation},
-author={Issa Nasralli},
-booktitle={Journal ....},
-year={2025}
-}
+This creates:
 
+    output_threshold_0.9/
+      ├── sample_updated_1_mask.tif    # uint8 or bool, {0,1}
+      └── sample_updated_2_mask.tif
 
----
-
-## 📬 Contact
-
-For questions or collaborations, feel free to reach out at [aissanasralli@gmail.com].
+> You can repeat with different thresholds. A new folder named `output_threshold_X.XX/` is created each time.
 
 ---
 
-Thank you for your interest in **TriFusionBD**! We hope this repository helps advance research and applications in remote sensing and building segmentation.
+## 🛰️ Visualizing in QGIS
 
+1. Open **QGIS**.
+2. Drag the files from `output/` (probabilities) or `output_threshold_X.XX/` (binary) into the **Layers** panel in QGIS, **or simply open them with Paint/Image Viewer for a quick check**.
+3. Add corresponding originals from `test/` or updated inputs from `test_updated/` for overlay comparison.
 
+Download QGIS (Windows):
+
+    https://download.osgeo.org/qgis/windows/QGIS-OSGeo4W-3.44.2-1.msi?US
+
+---
+
+## ℹ️ Notes & Tips
+
+- **Band order matters**: inputs in `test_updated/` must be **[R, G, B, DEM, Slope]**.
+- **Value ranges**: probabilities are written in **[0,1]**. Binary masks are **{0,1}**.
+- **Performance**: large tiles benefit from running on a machine with sufficient RAM/VRAM; consider tiling if needed.
+
+---
+
+## 🧾 Citation
+
+If you find this repository useful, please cite **TriFusionBD** (add your full citation here):
+
+    @article{trifusionbd2025,
+      title   = {TriFusionBD: Building Segmentation with RGB, DEM, and Slope Fusion},
+      author  = {Author Names},
+      journal = {GeoInformatica},
+      year    = {2025}
+    }
+
+---
