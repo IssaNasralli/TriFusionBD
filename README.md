@@ -1,6 +1,7 @@
 # TriFusionBD – Building Segmentation from GeoTIFF (Test Repository)
 
-This repository provides a **lightweight test harness** for the pretrained **TriFusionBD** model to segment **buildings** on updated test images that combine **RGB + DEM + Slope** layers (5 bands). You will (1) run inference to obtain per-pixel **probabilities (0–1)** and (2) apply a threshold to get **binary masks** suitable for GIS visualization.
+This repository provides a **lightweight test harness** for the pretrained **TriFusionBD** model to segment **buildings** on updated test images that combine **RGB + DEM + Slope** layers (5 bands).  
+The two provided test images (**1.tif** and **2.tif**) are extracted from the **test partition of the Massachusetts Buildings Dataset** and have been extended with DEM and slope channels for evaluation.  
 
 ---
 
@@ -10,6 +11,7 @@ This repository provides a **lightweight test harness** for the pretrained **Tri
 - TensorFlow
 - numpy
 - rasterio
+
 Install dependencies:
 
     pip install -r requirements.txt
@@ -27,14 +29,14 @@ Create `requirements.txt`:
     TriFusionBD-Test/
     │── README.md
     │── TriFusion_Gate_Atrous_Gate.py   # Model definition
-    │── predict.py                       # Run inference on all GeoTIFFs in test_dem/
+    │── predict.py                       # Run inference on all GeoTIFFs in test_updated/
     │── threshold.py                     # Apply threshold to probability maps
     │
-    ├── test_updated/                        # UPDATED test GeoTIFFs (5 bands: R,G,B,DEM,Slope)
+    ├── test_updated/                    # UPDATED test GeoTIFFs (5 bands: R,G,B,DEM,Slope)
     │   ├── 1_updated.tif
     │   └── 2_updated.tif
     │
-    └── test/                            # ORIGINAL test GeoTIFFs (reference RGB)
+    └── test/                            # ORIGINAL test GeoTIFFs (RGB only, from Massachusetts dataset)
         ├── 1.tif
         └── 2.tif
 
@@ -45,15 +47,15 @@ Create `requirements.txt`:
 ## 🚀 Quick Start
 
 ### 1) Run Prediction (probability maps)
-Runs on **all `.tif` files inside `test_dem/`** and writes per-pixel building probabilities (0–1) to `output/`.
+Run inference on **all `.tif` files inside `test_updated/`** and write per-pixel building probabilities (0–1) to `output/`.
 
     python predict.py
 
 This creates:
 
     output/
-      ├── 1_updated.tif    # float32, values in [0,1]
-      └── 2_updated.tif
+      ├── 1_updated_pred.tif    # float32, values in [0,1]
+      └── 2_updated_pred.tif
 
 **Color meaning (for visualization):**
 - 0.0 → **black** (non-building)
@@ -63,15 +65,16 @@ This creates:
 ---
 
 ### 2) Apply Threshold (binary masks)
-Converts probability maps to **binary** masks using a user-defined threshold (e.g., 0.50). The result contains **white (1)** for building and **black (0)** for background.
+Convert probability maps to **binary masks** using a user-defined threshold (e.g., 0.90).  
+The result contains **white (1)** for building and **black (0)** for background.
 
     python threshold.py --threshold 0.9
 
 This creates:
 
     output_threshold_0.9/
-      ├── sample_updated_1_mask.tif    # uint8 or bool, {0,1}
-      └── sample_updated_2_mask.tif
+      ├── 1_updated_mask.tif    # uint8 or bool, {0,1}
+      └── 2_updated_mask.tif
 
 > You can repeat with different thresholds. A new folder named `output_threshold_X.XX/` is created each time.
 
@@ -79,9 +82,9 @@ This creates:
 
 ## 🛰️ Visualizing in QGIS
 
-1. Open **QGIS**.
-2. Drag the files from `output/` (probabilities) or `output_threshold_X.XX/` (binary) into the **Layers** panel in QGIS, **or simply open them with Paint/Image Viewer for a quick check**.
-3. Add corresponding originals from `test/` or updated inputs from `test_updated/` for overlay comparison.
+1. Open **QGIS**.  
+2. Drag the files from `output/` (probabilities) or `output_threshold_X.XX/` (binary) into the **Layers** panel in QGIS, **or simply open them with Paint/Image Viewer for a quick check**.  
+3. Optionally, overlay the originals from `test/` or the updated inputs from `test_updated/` for comparison.
 
 Download QGIS (Windows):
 
@@ -91,9 +94,10 @@ Download QGIS (Windows):
 
 ## ℹ️ Notes & Tips
 
-- **Band order matters**: inputs in `test_updated/` must be **[R, G, B, DEM, Slope]**.
-- **Value ranges**: probabilities are written in **[0,1]**. Binary masks are **{0,1}**.
-- **Performance**: large tiles benefit from running on a machine with sufficient RAM/VRAM; consider tiling if needed.
+- **Data origin**: `1.tif` and `2.tif` come from the **Massachusetts Buildings Dataset (test partition)**.  
+- **Band order matters**: inputs in `test_updated/` must be **[R, G, B, DEM, Slope]**.  
+- **Value ranges**: probabilities are written in **[0,1]**. Binary masks are **{0,1}**.  
+- **Performance**: large tiles benefit from running on a machine with sufficient RAM/VRAM; consider tiling if needed.  
 
 ---
 
