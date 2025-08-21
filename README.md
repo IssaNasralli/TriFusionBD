@@ -46,7 +46,7 @@ Create `requirements.txt`:
 ## 🚀 Quick Start
 
 ### 1) Run Prediction (probability maps)
-Runs on **all `.tif` files inside `test_dem/`** and writes per-pixel building probabilities (0–1) to `output/`.
+Runs on **all `.tif` files inside `test_updated/`** and writes per-pixel building probabilities (0–1) to `output/`.
 
     python predict.py
 
@@ -71,8 +71,8 @@ Converts probability maps to **binary** masks using a user-defined threshold (e.
 This creates:
 
     output_threshold_0.9/
-      ├── sample_updated_1_mask.tif    # uint8 or bool, {0,1}
-      └── sample_updated_2_mask.tif
+      ├── updated_1.tif    # uint8 or bool, {0,1}
+      └── updated_2.tif
 
 > You can repeat with different thresholds. A new folder named `output_threshold_X.XX/` is created each time.
 
