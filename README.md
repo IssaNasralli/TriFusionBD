@@ -133,7 +133,7 @@ This confirms that the updated dataset properly includes the elevation and slope
 
 ## 🧾 Citation
 
-If you find this repository useful, please cite **TriFusionBD** (add your full citation here):
+If you find this repository useful, please cite **TriFusionBD**:
 
     @article{trifusionbd2025,
       title   = {TriFusionBD: A probabilistic–deterministic deep fusion network for building extraction using satellite imagery and auxiliary geospatial data},
