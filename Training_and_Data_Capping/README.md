@@ -100,7 +100,6 @@ TriFusionBD consists of:
 - Multi-rate dilated convolutions
 - Captures large receptive fields
 - Global average pooling
-- Gated modulation (G_g)
 
 ### 3. Pixel Branch
 - Uses center pixel features
