@@ -8,7 +8,7 @@ The objective of this pipeline is to:
 1. Mosaic satellite tiles (train/val/test) into a single raster.
 2. Generate a shapefile representing the full spatial extent.
 3. Use that shapefile in Google Earth Engine (GEE) to extract DEM and slope data.
-4. Reproject and resample DEM and slope layers.
+4. Reproject and resample DEM and slope layers. (using the Project Raster tool in ArcGIS Pro 3, setting the output coordinate system to match the Massachusetts dataset and using Bilinear resampling)
 5. Add DEM and slope as additional bands to each satellite image.
 6. Produce final augmented datasets for training, validation, and testing.
 
