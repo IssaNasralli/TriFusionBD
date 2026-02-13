@@ -99,7 +99,7 @@ This creates:
 ---
 
 ## 🛰️ Visualizing in QGIS
-You can use QGIS to inspect both the original and updated test rasters.
+You can use free QGIS to inspect both the original and updated test rasters.
 Download QGIS (Windows):
     https://download.osgeo.org/qgis/windows/QGIS-OSGeo4W-3.44.2-1.msi?US
 1. Open **QGIS**.
