@@ -31,6 +31,22 @@ Create `requirements.txt`:
     │── predict.py                       # Run inference on all GeoTIFFs in test_dem/
     │── threshold.py                     # Apply threshold to probability maps
     │
+    ├── ArcGIS_Pro_3/                        
+    │   ├── adding_dem_slope.py
+    │   ├── shp_from_mosaic_all.py
+    │   └── mosaic.py
+    │
+    │   
+    ├── Google_Earth_Engine                        
+    │   └── 2_updated.tif
+    │
+    │
+    ├── Training_and_Data_Capping                        
+    │   ├── Test_TriFusion_Gate_Atrous_Gate.py
+    │   ├── TriFusion_Gate_Atrous_Gate.py
+    │   └── create_csv_files.py
+    │
+    │
     ├── test_updated/                        # UPDATED test GeoTIFFs (5 bands: R,G,B,DEM,Slope)
     │   ├── 1_updated.tif
     │   └── 2_updated.tif
