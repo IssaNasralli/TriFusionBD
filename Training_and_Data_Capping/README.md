@@ -242,8 +242,41 @@ Includes:
 
 - ModelCheckpoint
 - EarlyStopping
-
 ---
+
+## ▶ Run Training from Command Line
+
+Training is executed using:
+
+
+Test_TriFusion_Gate_Atrous_Gate.py
+
+### Example 1 — Train with 5 Bands (RGB + DEM + Slope)
+
+```bash
+python3 Test_TriFusion_Gate_Atrous_Gate.py \
+  --patch_size_global 35 \
+  --latent_dim 50 \
+  --batch_size 16 \
+  --training 1 \
+  --bands 5
+
+### Example 2 — — Train with 3 Bands (RGB Only)
+python3 Test_TriFusion_Gate_Atrous_Gate.py \
+  --patch_size_global 35 \
+  --latent_dim 50 \
+  --batch_size 16 \
+  --training 1 \
+  --bands 3
+▶ Output Weights
+
+Weights are automatically saved as:
+TriFusion_Option_<MODEL_OPTION>_Bands_<BANDS>_Global_<PATCH_SIZE_GLOBAL>_Laten_<LATENT_DIM>_Laten_<BATCH_SIZE>.h5
+Example:
+TriFusion_Option_GAG_Bands_5_Global_35_Laten_50_Laten_16.h5
+
+The best validation model is saved using ModelCheckpoint.
+
 
 # 5️⃣ Evaluation
 
