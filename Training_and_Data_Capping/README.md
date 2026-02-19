@@ -260,6 +260,7 @@ python3 Test_TriFusion_Gate_Atrous_Gate.py \
   --batch_size 16 \
   --training 1 \
   --bands 5
+```
 
 ### Example 2 — — Train with 3 Bands (RGB Only)
 python3 Test_TriFusion_Gate_Atrous_Gate.py \
