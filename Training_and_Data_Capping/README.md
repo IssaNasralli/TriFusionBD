@@ -276,7 +276,7 @@ python3 Test_TriFusion_Gate_Atrous_Gate.py \
 ▶ Output Weights
 
 Weights are automatically saved as:
-TriFusion_Option_<MODEL_OPTION>_Bands_<BANDS>_Global_<PATCH_SIZE_GLOBAL>_Laten_<LATENT_DIM>_Laten_<BATCH_SIZE>.h5
+TriFusion_Option_GAG_Bands_<BANDS>_Global_<PATCH_SIZE_GLOBAL>_Laten_<LATENT_DIM>_Laten_<BATCH_SIZE>.h5
 
 ### Example:
 TriFusion_Option_GAG_Bands_5_Global_35_Laten_50_Laten_16.h5
