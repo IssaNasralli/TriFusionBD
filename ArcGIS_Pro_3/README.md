@@ -158,8 +158,10 @@ Generated files:
 > The native spatial resolution of SRTM DEM data is approximately 30 m, whereas the satellite imagery used in this study has a spatial resolution of approximately 1 m.  
 > Consequently, proper projection, alignment, and resampling of the DEM and derived slope layers are mandatory prior to band fusion to ensure spatial consistency and prevent misregistration artifacts.
 >
-> The corresponding Google Earth Engine (GEE) implementation required to generate these datasets is available in:👉 [`Google_Earth_Engine/`(../Google_Earth_Engine/)
----
+> The corresponding Google Earth Engine (GEE) implementation required to generate these datasets is available in:
+>
+> 👉 [`Google_Earth_Engine/`](../Google_Earth_Engine/)
+>
 
 # Step 4 – Add DEM and Slope Bands  
 File: adding_dem_slope.py
