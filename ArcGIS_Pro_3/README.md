@@ -154,11 +154,11 @@ Generated files:
 - dem_mosaic_extent_project.tif
 - slope_mosaic_extent_project2.tif
 
-Important:
-SRTM native resolution is 30 m, while satellite imagery resolution is approximately 1 m. Therefore, projection and resampling are required before fusion.
-
-The GEE script is available in the Google_Earth_Engine folder.
-
+> [!IMPORTANT]
+> The native spatial resolution of SRTM DEM data is approximately 30 m, whereas the satellite imagery used in this study has a spatial resolution of approximately 1 m.  
+> Consequently, proper projection, alignment, and resampling of the DEM and derived slope layers are mandatory prior to band fusion to ensure spatial consistency and prevent misregistration artifacts.
+>
+> The corresponding Google Earth Engine (GEE) implementation required to generate these datasets is available in:👉 [`Google_Earth_Engine/`(../Google_Earth_Engine/)
 ---
 
 # Step 4 – Add DEM and Slope Bands  
