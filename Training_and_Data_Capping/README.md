@@ -1,5 +1,29 @@
 
 # Training and Data Capping Module  
+
+---
+
+## ⚠️ Important – DEM and Slope Integration Required
+
+> **Warning**
+>
+> This training pipeline assumes that DEM and Slope bands have been successfully added to all dataset tiles **before running any script**.
+>
+> The preprocessed tiles must be stored as follows:
+>
+> - `train_dem/` → training tiles (RGB + DEM + Slope)
+> - `val_dem/`   → validation tiles (RGB + DEM + Slope)
+> - `test_dem/`  → test tiles (RGB + DEM + Slope)
+>
+> Each tile must already contain the correct number of bands depending on the selected configuration:
+>
+> - `--bands 5` → RGB + DEM + Slope  
+> - `--bands 3` → RGB only
+>
+> If DEM and Slope are not correctly integrated and stored in these folders, the training pipeline may fail or produce incorrect results.
+
+---
+
 ## TriFusionBD – Principled Class Balancing, Training and Evaluation
 
 This folder contains the Python implementation of the **Principled Data Capping and Class-Balancing Mechanism** and the full training/evaluation pipeline of the TriFusionBD model.
