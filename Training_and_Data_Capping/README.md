@@ -3,25 +3,33 @@
 
 ---
 
+---
+
 ## ⚠️ Important – DEM and Slope Integration Required
 
-> **Warning**
+> [!WARNING]
+> This training pipeline assumes that **DEM and Slope bands have been successfully added to all dataset tiles before running any script**.
 >
-> This training pipeline assumes that DEM and Slope bands have been successfully added to all dataset tiles **before running any script**.
+> The DEM and Slope preprocessing procedure is fully explained in the folder:
 >
-> The preprocessed tiles must be stored as follows:
+> 👉 [`ArcGIS_Pro_3/`](../ArcGIS_Pro_3/)
 >
-> - `train_dem/` → training tiles (RGB + DEM + Slope)
-> - `val_dem/`   → validation tiles (RGB + DEM + Slope)
-> - `test_dem/`  → test tiles (RGB + DEM + Slope)
+> Please follow that pipeline carefully before launching training.
 >
-> Each tile must already contain the correct number of bands depending on the selected configuration:
+> The preprocessed tiles must be stored as:
+>
+> - `train_dem/` → training tiles  
+> - `val_dem/` → validation tiles  
+> - `test_dem/` → test tiles  
+>
+> Each tile must already contain the correct number of bands:
 >
 > - `--bands 5` → RGB + DEM + Slope  
-> - `--bands 3` → RGB only
+> - `--bands 3` → RGB only  
 >
 > If DEM and Slope are not correctly integrated and stored in these folders, the training pipeline may fail or produce incorrect results.
 
+---
 ---
 
 ## TriFusionBD – Principled Class Balancing, Training and Evaluation
