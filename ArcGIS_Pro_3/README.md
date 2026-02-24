@@ -24,6 +24,7 @@
 > 2️⃣ Upload this shapefile to **Google Earth Engine** and generate:
 >    - `dem_mosaic_extent_project.tif`
 >    - `slope_mosaic_extent_project2.tif`
+>      
 > 3️⃣ Return to **ArcGIS** and use these files to:
 >    - Reproject and resample to match RGB resolution
 >    - Add DEM and Slope bands to each RGB tile
