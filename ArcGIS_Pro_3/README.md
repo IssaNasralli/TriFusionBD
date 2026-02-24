@@ -22,7 +22,7 @@
 > Step details:
 >
 > 1️⃣ In **ArcGIS**, generate the mosaic shapefile (`mosaic_extent.shp`).  
-> 2️⃣ Upload this shapefile to the Google Earth Engine workflow described in 👉 [`Google_Earth_Engine/`](../Google_Earth_Engine/)
+> 2️⃣ Upload this shapefile to the Google Earth Engine workflow described in 👉 [`Google_Earth_Engine/`] (../Google_Earth_Engine/)
 >
 > This stage generates:
 > - `dem_mosaic_extent_project.tif`
