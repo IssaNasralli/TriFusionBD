@@ -35,7 +35,7 @@ def add_dem_slope_bands(image_path, output_path):
 # Iterate through test, train, and val folders
 for folder in ['test', 'train', 'val']:
     folder_path = os.path.join(base_folder, folder)
-    output_folder = os.path.join(base_folder, f"{folder}_output")
+    output_folder = os.path.join(base_folder, f"{folder}_dem")
     os.makedirs(output_folder, exist_ok=True)
     
     for filename in os.listdir(folder_path):
@@ -44,4 +44,5 @@ for folder in ['test', 'train', 'val']:
             output_name = os.path.splitext(filename)[0] + ".tif"
             output_path = os.path.join(output_folder, output_name)
             add_dem_slope_bands(image_path, output_path)
+
 
