@@ -146,9 +146,9 @@ The script:
 Output Structure:
 
 Massa/
-   ├── train_output/
-   ├── val_output/
-   ├── test_output/
+   ├── train_dem/
+   ├── val_dem/
+   ├── test_dem/
 
 Each output raster contains:
 
