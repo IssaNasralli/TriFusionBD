@@ -1,4 +1,40 @@
 # ArcGIS Pro 3 – Preprocessing Pipeline for TriFusionBD
+---
+
+## ⚠️ Important – Full Preprocessing Dependency Chain
+
+> [!WARNING]
+> The ArcGIS preprocessing stage is part of a multi-step pipeline and **cannot be executed independently**.
+>
+> The correct order is:
+>
+> ```
+> ArcGIS (generate mosaic shapefile)
+>        ↓
+> Google Earth Engine (compute DEM & Slope)
+>        ↓
+> ArcGIS (project, resample, and add DEM/Slope bands to RGB tiles)
+>        ↓
+> Training_and_Data_Capping
+> ```
+>
+> Step details:
+>
+> 1️⃣ In **ArcGIS**, generate the mosaic shapefile (`mosaic_extent.shp`).  
+> 2️⃣ Upload this shapefile to **Google Earth Engine** and generate:
+>    - `dem_mosaic_extent_project.tif`
+>    - `slope_mosaic_extent_project2.tif`
+> 3️⃣ Return to **ArcGIS** and use these files to:
+>    - Reproject and resample to match RGB resolution
+>    - Add DEM and Slope bands to each RGB tile
+>    - Save outputs into:
+>       - `train_dem/`
+>       - `val_dem/`
+>       - `test_dem/`
+>
+> Skipping the GEE stage or breaking this order will result in missing or misaligned DEM/Slope layers and incorrect training data.
+
+---
 
 This folder documents the complete ArcGIS Pro 3 preprocessing workflow used in the TriFusionBD study for building extraction using satellite imagery and auxiliary topographic data.
 
