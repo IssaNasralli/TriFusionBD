@@ -1,4 +1,4 @@
-# Training and Data Capping Module
+# The DEM and Slope Preprocessing Module
 
 ---
 
