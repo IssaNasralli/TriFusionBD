@@ -86,22 +86,3 @@ All final resampling and spatial alignment were performed locally during the Tri
 
 ---
 
-## 4. How to Reproduce
-
-### Step 1 – Upload the Shapefile to GEE
-
-1. Open Google Earth Engine Code Editor:  
-   https://code.earthengine.google.com/
-
-2. Go to:
-   Assets → NEW → Shape files
-
-3. Upload all required files:
-   - `.shp`
-   - `.shx`
-   - `.dbf`
-   - `.prj`
-
-4. Wait until processing completes.
-
-5. Copy the generated Asset ID (e.g.):
