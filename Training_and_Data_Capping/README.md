@@ -5,9 +5,9 @@
 
 ---
 
-## ⚠️ Important – DEM and Slope Integration Required
+## DEM and Slope Integration Required
 
-> [!WARNING]
+
 > This training pipeline assumes that **DEM and Slope bands have been successfully added to all dataset tiles before running any script**.
 >
 > The DEM and Slope preprocessing procedure is fully explained in the folder:
