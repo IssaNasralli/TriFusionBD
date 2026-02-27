@@ -2,9 +2,8 @@
 
 ---
 
-## ⚠️ Important – Full Preprocessing Dependency Chain
+##  Important – Full Preprocessing Dependency Chain
 
-> [!WARNING]
 > This ArcGIS preprocessing stage is part of a multi-step pipeline and **cannot be executed independently**.
 >
 > The correct order is:
