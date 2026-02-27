@@ -31,7 +31,23 @@
 
 ---
 ---
+## 📦 Requirements
 
+- Python 3.8+
+- TensorFlow
+- numpy
+- rasterio
+Install dependencies:
+
+    pip install -r requirements.txt
+
+Create `requirements.txt`:
+
+    tensorflow==2.15.0
+    numpy
+    rasterio
+
+---
 ## TriFusionBD – Principled Class Balancing, Training and Evaluation
 
 This folder contains the Python implementation of the **Principled Data Capping and Class-Balancing Mechanism** and the full training/evaluation pipeline of the TriFusionBD model.
