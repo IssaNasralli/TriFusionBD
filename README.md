@@ -1,6 +1,6 @@
 # TriFusionBD – Building Segmentation from GeoTIFF (Test Repository)
 
-> **⚠️ Note:** This repository provides a **quick test harness** for the pretrained **TriFusionBD** model.  
+> **ℹ️ Note:** This repository provides a **quick test harness** for the pretrained **TriFusionBD** model.  
 > It is intended for **fast experimentation on small sample GeoTIFFs**.  
 > For **full-scale or advanced processing**, please explore the **ArcGIS_Pro_3**, **Google_Earth_Engine**, and **Training_and_Data_Capping** folders.
 > > The correct order is:
