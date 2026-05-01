@@ -148,7 +148,7 @@ If you find this repository useful, please cite **TriFusionBD**:
 
     @article{trifusionbd2025,
       title   = {TriFusionBD: A probabilistic–deterministic deep fusion network for building extraction using satellite imagery and auxiliary geospatial data},
-      author  = {Nasralli, Issa and Masmoudi, Imen and Drira, Hassen and Taieb, Mohamed Ali Hadj},
+      author  = {},
       journal = {Geomatics and Environmental Engineering},
       year    = {2026}
     }
