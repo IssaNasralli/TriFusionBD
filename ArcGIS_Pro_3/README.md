@@ -102,7 +102,9 @@ The script:
 
 Output:
 
-mosaic_all.tif
+- mosaic_all.tif
+- Output size: 1.33 GiB  
+  (greater than the repository upload limit of 25 MiB, therefore not included in this repository)
 
 This mosaic is used only to determine the full spatial extent of the dataset.
 
@@ -118,8 +120,9 @@ Input:
 - mosaic_all.tif
 
 Output:
-- mosaic_extent.shp
-
+- mosaic_extent.shp  
+- Final shapefile stored in the folder: 👉 [**`Final Extent Shapefile/`**](https://github.com/theunknownxauthor/TriFusionBD/tree/main/ArcGIS_Pro_3/Final%20Extent%20Shapefile)
+  
 Method:
 
 - Extract raster extent using arcpy.Describe.
@@ -152,6 +155,8 @@ Processing in GEE:
 Generated files:
 - dem_mosaic_extent_project.tif
 - slope_mosaic_extent_project2.tif
+- Files size: 64 GMiB  and 39 MiB
+  (greater than the repository upload limit of 25 MiB, therefore not included in this repository)
 
 > [!IMPORTANT]
 > The native spatial resolution of SRTM DEM data is approximately 30 m, whereas the satellite imagery used in this study has a spatial resolution of approximately 1 m.  
