@@ -1,4 +1,4 @@
-# TriFusionBD – Building Segmentation from GeoTIFF (Test Repository)
+# TriFusionBD – Building Segmentation from GeoTIFF
 
 > **ℹ️ Note:** This repository provides a **quick test harness** for the pretrained **TriFusionBD** model.  
 > It is intended for **fast experimentation on small sample GeoTIFFs**.  
