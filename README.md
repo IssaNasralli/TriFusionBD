@@ -144,16 +144,3 @@ This confirms that the updated dataset properly includes the elevation and slope
 - **Performance**: large tiles benefit from running on a machine with sufficient RAM/VRAM; consider tiling if needed.
 
 ---
-
-## 🧾 Citation
-
-If you find this repository useful, please cite **TriFusionBD**:
-
-    @article{trifusionbd2025,
-      title   = {TriFusionBD: A probabilistic–deterministic deep fusion network for building extraction using satellite imagery and auxiliary geospatial data},
-      author  = {},
-      journal = {Geomatics and Environmental Engineering},
-      year    = {2026}
-    }
-
----
